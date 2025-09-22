@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VagalSync - Revolutionary Wellness Through HRV Science</title>
+    <meta name="description" content="Track your autonomic nervous system health with VagalSync's proprietary myVagal Tone™ technology. Join the wellness revolution.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #6B46C1;
+            --secondary: #9333EA;
+            --accent: #06B6D4;
+            --dark: #111827;
+            --light: #F9FAFB;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: move 20s linear infinite;
+        }
+        
+        @keyframes move {
+            0% { transform: translate(-50%, -50%); }
+            100% { transform: translate(0, 0); }
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .trademark {
+            font-size: 0.8em;
+            vertical-align: super;
+        }
+        
+        /* Waitlist Form */
+        .waitlist-form {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .waitlist-form input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Features */
+        .features {
+            padding: 80px 0;
+            background: var(--light);
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .feature-card p {
+            color: #6B7280;
+            line-height: 1.8;
+        }
+        
+        /* Science Section */
+        .science {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .science-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .science-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .science-text p {
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .science-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--light);
+            border-radius: 15px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-label {
+            color: #6B7280;
+            margin-top: 0.5rem;
+        }
+        
+        /* Pricing */
+        .pricing {
+            padding: 80px 0;
+            background: var(--light);
+        }
+        
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-subtitle {
+            text-align: center;
+            color: #6B7280;
+            margin-bottom: 3rem;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s;
+        }
+        
+        .pricing-card.featured {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        .price-period {
+            font-size: 1rem;
+            color: #6B7280;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #9CA3AF;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9CA3AF;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .waitlist-form {
+                flex-direction: column;
+            }
+            
+            .science-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">VagalSync</div>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#science">Science</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Transform Your Wellness Through HRV Science</h1>
+            <p>Unlock your body's hidden signals with myVagal Tone<span class="trademark">™</span> technology</p>
+            <form class="waitlist-form" onsubmit="handleSubmit(event)">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn-primary">Join Waitlist</button>
+            </form>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                🚀 Be among the first 500 founding members • Launching Q1 2025
+            </p>
+        </div>
+    </section>
+    
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Revolutionary Wellness Tracking</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>myVagal Tone™ Score</h3>
+                    <p>Proprietary algorithm analyzing your autonomic nervous system health through advanced HRV patterns and biomarker integration.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔬</div>
+                    <h3>Science-Based Insights</h3>
+                    <p>Evidence-based recommendations powered by 11 patent-pending technologies and validated clinical research.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Device Agnostic</h3>
+                    <p>Works with your existing wearables - Apple Watch, Whoop, Oura, Garmin, and over 20 other devices.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Personalized Protocols</h3>
+                    <p>AI-driven recommendations adapted to your unique physiology and lifestyle patterns.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Progress Tracking</h3>
+                    <p>Visual dashboards showing your wellness journey with actionable insights and trend analysis.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏥</div>
+                    <h3>Provider Integration</h3>
+                    <p>Share your data with healthcare providers for enhanced care coordination (coming soon).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Science Section -->
+    <section class="science" id="science">
+        <div class="container">
+            <div class="science-content">
+                <div class="science-text">
+                    <h2>The Science Behind VagalSync</h2>
+                    <p>Heart Rate Variability (HRV) is your body's secret language, revealing the balance of your autonomic nervous system. Our proprietary myVagal Tone™ algorithm goes beyond simple HRV metrics.</p>
+                    <p>By analyzing patterns across multiple biomarkers and correlating them with validated clinical outcomes, VagalSync provides insights previously available only in research laboratories.</p>
+                    <p>Our technology is protected by 11 patent applications and validated through partnerships with leading research institutions.</p>
+                    <div class="science-stats">
+                        <div class="stat">
+                            <div class="stat-number">94%</div>
+                            <div class="stat-label">Accuracy Rate</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">11</div>
+                            <div class="stat-label">Patents Filed</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">20+</div>
+                            <div class="stat-label">Device Types</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Monitoring</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="science-visual" style="display: flex; align-items: center; justify-content: center;">
+                    <div style="width: 400px; height: 400px; background: var(--gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative;">
+                        <div style="width: 300px; height: 300px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <div style="font-size: 3rem;">❤️</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Simple, Transparent Pricing</h2>
+            <p class="pricing-subtitle">Choose the plan that fits your wellness journey</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Free</h3>
+                    <div class="price">$0<span class="price-period">/month</span></div>
+                    <p>Basic HRV tracking</p>
+                    <p>Weekly reports</p>
+                    <p>1 device connection</p>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Silver</h3>
+                    <div class="price">$49<span class="price-period">/month</span></div>
+                    <p>Advanced analytics</p>
+                    <p>Daily insights</p>
+                    <p>3 device connections</p>
+                    <p>Personalized protocols</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Gold</h3>
+                    <div class="price">$99<span class="price-period">/month</span></div>
+                    <p>Complete platform access</p>
+                    <p>Real-time monitoring</p>
+                    <p>Unlimited devices</p>
+                    <p>Provider dashboard</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Platinum</h3>
+                    <div class="price">$299<span class="price-period">/month</span></div>
+                    <p>White-glove service</p>
+                    <p>Research participation</p>
+                    <p>Concierge support</p>
+                    <p>Custom protocols</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <p>VagalSync, Inc.</p>
+                    <p>1655 Butler Pike</p>
+                    <p>Mercer, PA 16137</p>
+                    <p>United States</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: support@myvagalsync.com</p>
+                    <p>Phone: +1 (724) 992-2787</p>
+                    <p>Support Hours: 9 AM - 5 PM EST</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <p><a href="#">Privacy Policy</a></p>
+                    <p><a href="#">Terms of Service</a></p>
+                    <p><a href="#">HIPAA Compliance</a></p>
+                    <p>EIN: Available via Stripe Atlas</p>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <p>VagalSync is a wellness technology platform providing HRV tracking and analytics software for consumers and healthcare providers.</p>
+                    <p>Patent Pending: myVagal Tone™</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024-2025 VagalSync, Inc. All rights reserved. | A Delaware C-Corporation</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for joining our waitlist! We\'ll contact you soon with updates on our Q1 2025 launch.');
+            event.target.reset();
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
