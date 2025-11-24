@@ -3,8 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VagalSync - Revolutionary Wellness Through HRV Science</title>
-    <meta name="description" content="Track your autonomic nervous system health with VagalSync's proprietary myVagal Tone™ technology. Join the wellness revolution.">
+    <title>VagalSync - The Wellness Dashboard That Respects Your Privacy</title>
+    <meta name="description" content="Track your autonomic nervous system health with VagalSync's proprietary myVagal Tone™ technology. Free forever when you own a MyBodyGuard Guardian.">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+
+        // Helper function for event tracking
+        function trackEvent(eventName, parameters) {
+            gtag('event', eventName, parameters);
+            console.log('Event tracked:', eventName, parameters);
+        }
+    </script>
+
     <style>
         * {
             margin: 0;
@@ -34,13 +50,38 @@
             padding: 0 20px;
         }
         
+        /* Pre-Launch Banner */
+        .pre-launch-banner {
+            background: #FFC107;
+            color: #000;
+            padding: 12px 20px;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1001;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .pre-launch-banner a {
+            color: #000;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .pre-launch-banner a:hover {
+            color: #333;
+        }
+
         /* Header */
         header {
             background: white;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
-            top: 0;
+            top: 48px;
             z-index: 1000;
         }
         
@@ -80,7 +121,7 @@
         .hero {
             background: var(--gradient);
             color: white;
-            padding: 120px 0 80px;
+            padding: 170px 0 80px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -327,7 +368,96 @@
             font-size: 1rem;
             color: #6B7280;
         }
-        
+
+        /* Beehiiv Email Form Styles */
+        .email-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .email-form input[type="email"] {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+
+        .email-form input[type="email"]:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .email-form button {
+            padding: 1rem 2rem;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .email-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Disclaimer Section */
+        .disclaimer-section {
+            background: #F5F5F5;
+            padding: 60px 0;
+        }
+
+        .disclaimer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .disclaimer-content h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .disclaimer-content p {
+            color: #6B7280;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .disclaimer-content ul {
+            color: #6B7280;
+            line-height: 1.8;
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        details {
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        summary:hover {
+            color: var(--secondary);
+        }
+
         /* Footer */
         footer {
             background: var(--dark);
@@ -397,6 +527,12 @@
     </style>
 </head>
 <body>
+    <!-- Pre-Launch Banner -->
+    <div class="pre-launch-banner">
+        ⚠️ PRE-LAUNCH NOTICE: Pricing and features shown are estimates and subject to change. Launch: Q3 2026 |
+        <a href="#disclaimer">Learn More</a>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container">
@@ -417,16 +553,27 @@
         <div class="container">
             <h1>The Wellness Dashboard That Respects Your Privacy</h1>
             <p>Connect to your MyBodyGuard Guardian for zero-trust security.<br>Or start free with basic tracking.</p>
-            <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 600px; margin: 2rem auto; position: relative; z-index: 1;">
-                <a href="https://mybodyguard.ai" style="background: #10B981; color: white; padding: 1rem 2rem; border-radius: 50px; font-size: 1.1rem; font-weight: bold; text-decoration: none; text-align: center; transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+
+            <!-- Beehiiv Waitlist Form -->
+            <form class="email-form" id="waitlist-form" style="position: relative; z-index: 1; margin: 2rem auto;">
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <button type="submit">Join Waitlist</button>
+            </form>
+
+            <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; position: relative; z-index: 1; flex-wrap: wrap;">
+                <a href="https://mybodyguard.ai" style="color: white; text-decoration: underline; font-weight: 500; opacity: 0.9;">
                     Own a Guardian? Get Premium FREE →
                 </a>
-                <button type="button" class="btn-primary" onclick="window.location.href='#pricing'">
-                    Try VagalSync Free (no Guardian needed) →
-                </button>
+                <a href="#pricing" style="color: white; text-decoration: underline; font-weight: 500; opacity: 0.9;">
+                    View Pricing
+                </a>
             </div>
-            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">
+
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.9; position: relative; z-index: 1;">
                 🔒 VagalSync never stores your health data. When connected to your Guardian, all data stays on YOUR device.
+            </p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8; position: relative; z-index: 1;">
+                We respect your privacy. Unsubscribe anytime.
             </p>
         </div>
     </section>
@@ -473,32 +620,28 @@
     <!-- Trust & Security Section -->
     <section style="padding: 80px 0; background: white; border-top: 1px solid #E5E7EB;">
         <div class="container">
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
                 <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--dark);">Your Data, Your Control</h2>
                 <p style="font-size: 1.2rem; color: #6B7280; margin-bottom: 3rem; line-height: 1.8;">
                     VagalSync never stores your health data. When connected to your Guardian, all data stays on YOUR device. We just display it beautifully.
                 </p>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
-                        <h3 style="color: var(--dark); margin-bottom: 0.5rem;">Zero-Trust Architecture</h3>
-                        <p style="color: #6B7280;">No cloud storage, no data mining</p>
+                <!-- 3 Main Trust Pillars -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; margin-top: 3rem;">
+                    <div style="text-align: center; padding: 2rem; background: #F9FAFB; border-radius: 15px;">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">🔒</div>
+                        <h3 style="color: var(--dark); margin-bottom: 1rem; font-size: 1.3rem;">Your Data Never Leaves Your Device</h3>
+                        <p style="color: #6B7280; line-height: 1.8;">VagalSync is a thin client. When connected to your Guardian, all health data stays on YOUR device. We just display it beautifully.</p>
                     </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
-                        <h3 style="color: var(--dark); margin-bottom: 0.5rem;">Guardian Integration</h3>
-                        <p style="color: #6B7280;">Local-only processing on your device</p>
+                    <div style="text-align: center; padding: 2rem; background: #F9FAFB; border-radius: 15px;">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">🤝</div>
+                        <h3 style="color: var(--dark); margin-bottom: 1rem; font-size: 1.3rem;">Works With or Without Guardian</h3>
+                        <p style="color: #6B7280; line-height: 1.8;">Try VagalSync free with browser storage, or upgrade to Guardian for enterprise-grade security.</p>
                     </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🔐</div>
-                        <h3 style="color: var(--dark); margin-bottom: 0.5rem;">Military-Grade Encryption</h3>
-                        <p style="color: #6B7280;">End-to-end encrypted at all times</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
-                        <h3 style="color: var(--dark); margin-bottom: 0.5rem;">HIPAA Compliant</h3>
-                        <p style="color: #6B7280;">Exceeds healthcare privacy standards</p>
+                    <div style="text-align: center; padding: 2rem; background: #F9FAFB; border-radius: 15px;">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">💰</div>
+                        <h3 style="color: var(--dark); margin-bottom: 1rem; font-size: 1.3rem;">Get Paid for Your Data</h3>
+                        <p style="color: #6B7280; line-height: 1.8;">Guardian owners can monetize health data while maintaining complete privacy. Earn $2,000+/year.</p>
                     </div>
                 </div>
 
@@ -613,45 +756,63 @@
             <h2>Simple, Transparent Pricing</h2>
             <p class="pricing-subtitle">Choose the plan that fits your wellness journey</p>
             <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 900px;">
+                <!-- Free Tier -->
                 <div class="pricing-card">
-                    <h3>Free</h3>
+                    <h3>VagalSync Free</h3>
                     <div class="price">$0<span class="price-period">/month</span></div>
-                    <ul style="text-align: left; padding-left: 20px; margin-top: 1.5rem; line-height: 2;">
-                        <li>Basic HRV tracking</li>
-                        <li>Weekly wellness reports</li>
-                        <li>1 device connection</li>
-                        <li>myVagal Tone™ score</li>
+                    <ul style="text-align: left; padding-left: 20px; margin-top: 1.5rem; line-height: 2; font-size: 0.95rem;">
+                        <li>Manual biomarker entry</li>
+                        <li>Basic trends visualization</li>
+                        <li>Daily check-ins</li>
+                        <li>Community access</li>
+                        <li>3 free wellness protocols</li>
                     </ul>
-                    <button class="btn-primary" style="margin-top: 2rem; width: 100%; background: var(--gradient); color: white;" onclick="alert('Free tier coming soon! Join the waitlist.')">Get Started Free</button>
+                    <form class="email-form" style="margin-top: 2rem; width: 100%;" onsubmit="handlePricingSignup(event, 'free')">
+                        <input type="email" placeholder="Your email" required style="width: 100%; padding: 0.8rem; margin-bottom: 0.5rem;">
+                        <button type="submit" style="width: 100%; background: var(--gradient); padding: 0.8rem;">Start Free</button>
+                    </form>
+                    <p style="font-size: 0.8rem; color: #6B7280; margin-top: 1rem; font-style: italic;">*No Guardian required. Data stored in browser only.</p>
                 </div>
+
+                <!-- Premium Tier (HIGHLIGHTED) -->
                 <div class="pricing-card featured">
-                    <h3>Premium</h3>
-                    <div class="price">$9.99<span class="price-period">/month</span></div>
-                    <ul style="text-align: left; padding-left: 20px; margin-top: 1.5rem; line-height: 2;">
-                        <li>Advanced HRV analytics</li>
-                        <li>Daily personalized insights</li>
-                        <li>Unlimited device connections</li>
-                        <li>AI-powered recommendations</li>
-                        <li>Progress tracking & trends</li>
-                        <li>Export & share data</li>
+                    <h3>VagalSync Premium</h3>
+                    <div class="price">$9.99<span class="price-period">/month*</span></div>
+                    <p style="font-size: 0.9rem; color: #6B7280; margin-bottom: 1rem;">or $99/year (save $20)</p>
+                    <ul style="text-align: left; padding-left: 20px; margin-top: 1rem; line-height: 2; font-size: 0.95rem;">
+                        <li><strong>Everything in Free, plus:</strong></li>
+                        <li>Unlimited wellness protocols</li>
+                        <li>2,000+ biomarker tracking</li>
+                        <li>Circadian timing optimization</li>
+                        <li>Lab result upload & analysis</li>
+                        <li>Genetic data integration</li>
+                        <li>Predictive health analytics</li>
                     </ul>
-                    <button class="btn-primary" style="margin-top: 2rem; width: 100%; background: var(--gradient); color: white;" onclick="alert('Premium tier coming soon! Join the waitlist.')">Upgrade to Premium</button>
+                    <form class="email-form" style="margin-top: 2rem; width: 100%;" onsubmit="handlePricingSignup(event, 'premium')">
+                        <input type="email" placeholder="Your email" required style="width: 100%; padding: 0.8rem; margin-bottom: 0.5rem;">
+                        <button type="submit" style="width: 100%; background: var(--gradient); padding: 0.8rem;">Join Waitlist</button>
+                    </form>
+                    <p style="font-size: 0.8rem; color: #6B7280; margin-top: 1rem; font-style: italic;">*Pricing subject to change at launch</p>
                 </div>
+
+                <!-- Guardian Bundle (BEST VALUE) -->
                 <div class="pricing-card" style="border: 3px solid #10B981;">
-                    <div style="background: #10B981; color: white; padding: 8px; margin: -2rem -2rem 1rem -2rem; border-radius: 12px 12px 0 0; font-weight: bold;">
-                        🛡️ GUARDIAN BUNDLE
+                    <div style="background: #10B981; color: white; padding: 8px; margin: -2rem -2rem 1rem -2rem; border-radius: 12px 12px 0 0; font-weight: bold; font-size: 0.9rem;">
+                        🛡️ BEST VALUE - GUARDIAN BUNDLE
                     </div>
-                    <h3>Premium FREE</h3>
-                    <div class="price" style="font-size: 2rem;">FREE<span class="price-period" style="font-size: 0.9rem;"><br>with Guardian</span></div>
-                    <ul style="text-align: left; padding-left: 20px; margin-top: 1.5rem; line-height: 2;">
+                    <h3>VagalSync + Guardian</h3>
+                    <div class="price" style="font-size: 2.5rem;">FREE<span class="price-period" style="font-size: 0.9rem;">*</span></div>
+                    <p style="font-size: 0.9rem; color: #6B7280; margin-bottom: 1rem; font-weight: 500;">When you own MyBodyGuard Guardian</p>
+                    <ul style="text-align: left; padding-left: 20px; margin-top: 1rem; line-height: 2; font-size: 0.95rem;">
                         <li><strong>All Premium features</strong></li>
-                        <li>Zero-trust data security</li>
-                        <li>Local-only data storage</li>
-                        <li>Military-grade encryption</li>
-                        <li>Complete privacy control</li>
-                        <li><em>Lifetime FREE with Guardian</em></li>
+                        <li>Zero-trust secure storage</li>
+                        <li>AI-powered health insights</li>
+                        <li>Protocol automation</li>
+                        <li>Data monetization eligibility</li>
+                        <li><em>Earn $2,000+/year from your data</em></li>
                     </ul>
-                    <a href="https://mybodyguard.ai" class="btn-primary" style="display: block; margin-top: 2rem; width: 100%; background: #10B981; color: white; text-decoration: none; padding: 1rem 2rem; border-radius: 50px; font-weight: bold; text-align: center; box-sizing: border-box;">Get Your Guardian →</a>
+                    <a href="https://mybodyguard.ai" class="btn-primary" style="display: block; margin-top: 2rem; width: 100%; background: #10B981; color: white; text-decoration: none; padding: 1rem 2rem; border-radius: 50px; font-weight: bold; text-align: center; box-sizing: border-box;" onclick="trackEvent('guardian_cta_click', {location: 'pricing_card'});">Learn About Guardian →</a>
+                    <p style="font-size: 0.8rem; color: #6B7280; margin-top: 1rem; font-style: italic;">*Free with any Guardian purchase</p>
                 </div>
             </div>
             <p style="text-align: center; margin-top: 2rem; color: #6B7280; font-size: 0.95rem;">
@@ -659,7 +820,95 @@
             </p>
         </div>
     </section>
-    
+
+    <!-- Disclaimer Section -->
+    <section class="disclaimer-section" id="disclaimer">
+        <div class="container">
+            <div class="disclaimer-content">
+                <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2rem; color: var(--dark);">Pre-Launch Information</h2>
+
+                <details open>
+                    <summary>Important Pre-Launch Notice</summary>
+                    <p style="margin-top: 1rem;">
+                        <strong>VagalSync is currently in pre-launch phase.</strong> All pricing, features, and specifications shown on this page are estimates and subject to change before the official launch in Q3 2026.
+                    </p>
+                    <p>
+                        By joining our waitlist, you'll be notified of any changes to pricing or features, and will have the opportunity to access early bird pricing and exclusive launch benefits.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>Pricing Disclaimers</summary>
+                    <div style="margin-top: 1rem;">
+                        <h4 style="margin-bottom: 0.5rem;">VagalSync Free</h4>
+                        <ul>
+                            <li>Free tier will remain free forever</li>
+                            <li>Data stored locally in your browser</li>
+                            <li>No Guardian device required</li>
+                            <li>Feature set subject to change at launch</li>
+                        </ul>
+
+                        <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">VagalSync Premium</h4>
+                        <ul>
+                            <li>Estimated price: $9.99/month or $99/year</li>
+                            <li>Final pricing may vary (+/- 20%) at launch</li>
+                            <li>Early bird pricing may be available for waitlist members</li>
+                            <li>30-day money-back guarantee at launch</li>
+                        </ul>
+
+                        <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">VagalSync + Guardian Bundle</h4>
+                        <ul>
+                            <li>VagalSync Premium is FREE with any MyBodyGuard Guardian purchase</li>
+                            <li>This offer is guaranteed for all Guardian owners</li>
+                            <li>Lifetime access to Premium features included</li>
+                            <li>Guardian pricing available at <a href="https://mybodyguard.ai" style="color: var(--primary);">mybodyguard.ai</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Feature Availability</summary>
+                    <p style="margin-top: 1rem;">
+                        <strong>Launch Features (Q3 2026):</strong> At launch, VagalSync will include core features such as manual biomarker entry, basic trends, daily check-ins, and protocol recommendations.
+                    </p>
+                    <p>
+                        <strong>Advanced Features (Post-Launch):</strong> Features like genetic data integration, predictive analytics, and data monetization will roll out in phases after launch.
+                    </p>
+                    <p>
+                        All waitlist members will receive detailed roadmaps and feature timeline updates as we approach launch.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>Data Privacy & Security</summary>
+                    <p style="margin-top: 1rem;">
+                        <strong>Your Privacy is Our Priority:</strong> VagalSync is designed as a "thin client" - we never store your health data on our servers. When using VagalSync Free, data is stored locally in your browser. When connected to a MyBodyGuard Guardian, all data remains on your personal device.
+                    </p>
+                    <p>
+                        We are committed to HIPAA compliance, zero-trust architecture, and giving you complete control over your health information.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>Guardian Integration</summary>
+                    <p style="margin-top: 1rem;">
+                        <strong>What is MyBodyGuard Guardian?</strong> The Guardian is a personal health data device that securely stores and processes your wellness data locally. When you own a Guardian, VagalSync connects to it for enhanced security and features - all while keeping your data under your complete control.
+                    </p>
+                    <p>
+                        <strong>Guardian Benefits:</strong> Zero-trust security, local data processing, AI-powered insights, protocol automation, and eligibility to monetize your anonymized health data (potential earnings: $2,000+/year).
+                    </p>
+                    <p>
+                        Learn more about Guardian at <a href="https://mybodyguard.ai" style="color: var(--primary); font-weight: bold;">mybodyguard.ai</a>
+                    </p>
+                </details>
+
+                <p style="margin-top: 2rem; text-align: center; font-size: 0.9rem; color: #6B7280;">
+                    Questions? Contact us at <a href="mailto:support@myvagalsync.com" style="color: var(--primary);">support@myvagalsync.com</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer id="contact">
         <div class="container">
@@ -673,36 +922,94 @@
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
-                    <p>Email: support@myvagalsync.com</p>
+                    <p>Email: <a href="mailto:support@myvagalsync.com">support@myvagalsync.com</a></p>
                     <p>Phone: +1 (724) 992-2787</p>
                     <p>Support Hours: 9 AM - 5 PM EST</p>
                 </div>
                 <div class="footer-section">
                     <h4>Legal</h4>
-                    <p><a href="#">Privacy Policy</a></p>
-                    <p><a href="#">Terms of Service</a></p>
-                    <p><a href="#">HIPAA Compliance</a></p>
-                    <p>EIN: Available via Stripe Atlas</p>
+                    <p><a href="#disclaimer">Privacy Policy</a></p>
+                    <p><a href="#disclaimer">Terms of Service</a></p>
+                    <p><a href="#disclaimer">Pre-Launch Notice</a></p>
+                    <p><a href="#disclaimer">HIPAA Compliance</a></p>
                 </div>
                 <div class="footer-section">
-                    <h4>About</h4>
-                    <p>VagalSync is a wellness technology platform providing HRV tracking and analytics software for consumers and healthcare providers.</p>
-                    <p>Patent Pending: myVagal Tone™</p>
+                    <h4>Ecosystem</h4>
+                    <p><a href="https://mybodyguard.ai" target="_blank">MyBodyGuard.ai</a></p>
+                    <p><a href="https://professionalfi.com" target="_blank">ProfessionalFi.com</a></p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;">Part of the MyBodyGuard.ai ecosystem</p>
                 </div>
             </div>
+
+            <!-- Social Links -->
+            <div style="text-align: center; padding: 2rem 0 1rem 0; border-top: 1px solid #374151;">
+                <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem;">
+                    <a href="https://twitter.com/myvagalsync" target="_blank" style="color: #9CA3AF; font-size: 1.5rem; transition: color 0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#9CA3AF'">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path></svg>
+                    </a>
+                    <a href="https://discord.gg/vagalsync" target="_blank" style="color: #9CA3AF; font-size: 1.5rem; transition: color 0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#9CA3AF'">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03z"/></svg>
+                    </a>
+                    <a href="https://instagram.com/myvagalsync" target="_blank" style="color: #9CA3AF; font-size: 1.5rem; transition: color 0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#9CA3AF'">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                </div>
+            </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2024-2025 VagalSync, Inc. All rights reserved. | A Delaware C-Corporation</p>
+                <p>&copy; 2025 VagalSync, Inc. All rights reserved. | A Delaware C-Corporation</p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">Part of the MyBodyGuard.ai ecosystem | Patent Pending: myVagal Tone™</p>
             </div>
         </div>
     </footer>
     
     <script>
-        function handleSubmit(event) {
+        // Beehiiv Magic Link Configuration
+        // NOTE: Replace with your actual Beehiiv publication ID
+        const BEEHIIV_PUBLICATION_ID = '3a79631b-5f1a-4852-b3f7-ceda5239ac70'; // UPDATE THIS
+        const THANK_YOU_URL = 'https://myvagalsync.com/thank-you.html'; // Create this page
+
+        // Main waitlist form submission
+        document.getElementById('waitlist-form').addEventListener('submit', function(event) {
             event.preventDefault();
-            alert('Thank you for joining our waitlist! We\'ll contact you soon with updates on our Q1 2025 launch.');
-            event.target.reset();
+            const email = document.getElementById('email').value;
+
+            // Track analytics
+            trackEvent('waitlist_submit', {
+                form_location: 'hero',
+                source: 'vagalsync-landing'
+            });
+
+            // Build Beehiiv magic link
+            const magicLink = `https://magic.beehiiv.com/v1/${BEEHIIV_PUBLICATION_ID}?email=${encodeURIComponent(email)}&redirect_to=${encodeURIComponent(THANK_YOU_URL)}&utm_source=vagalsync-landing&utm_medium=waitlist-form&utm_campaign=prelaunch-waitlist`;
+
+            // Redirect to Beehiiv
+            window.location.href = magicLink;
+        });
+
+        // Pricing tier signups
+        function handlePricingSignup(event, tier) {
+            event.preventDefault();
+            const form = event.target;
+            const email = form.querySelector('input[type="email"]').value;
+
+            // Store tier preference
+            localStorage.setItem('preferred_tier', tier);
+            localStorage.setItem('signup_date', new Date().toISOString());
+
+            // Track analytics
+            trackEvent('pricing_signup', {
+                tier: tier,
+                source: 'pricing_section'
+            });
+
+            // Build Beehiiv magic link
+            const magicLink = `https://magic.beehiiv.com/v1/${BEEHIIV_PUBLICATION_ID}?email=${encodeURIComponent(email)}&redirect_to=${encodeURIComponent(THANK_YOU_URL)}&utm_source=vagalsync-pricing&utm_medium=${tier}-signup&utm_campaign=prelaunch-waitlist`;
+
+            // Redirect to Beehiiv
+            window.location.href = magicLink;
         }
-        
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -711,6 +1018,42 @@
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
+            });
+        });
+
+        // Track scroll depth for analytics
+        let scrollTracked = {
+            25: false,
+            50: false,
+            75: false,
+            100: false
+        };
+
+        window.addEventListener('scroll', function() {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+
+            Object.keys(scrollTracked).forEach(percent => {
+                if (scrollPercent >= percent && !scrollTracked[percent]) {
+                    scrollTracked[percent] = true;
+                    trackEvent('scroll_depth', { percent: percent });
+                }
+            });
+        });
+
+        // Track time on page
+        const startTime = Date.now();
+        window.addEventListener('beforeunload', function() {
+            const timeSpent = Math.floor((Date.now() - startTime) / 1000);
+            trackEvent('time_on_page', { seconds: timeSpent });
+        });
+
+        // Track CTA clicks
+        document.querySelectorAll('a[href*="mybodyguard.ai"]').forEach(link => {
+            link.addEventListener('click', function() {
+                trackEvent('guardian_cta_click', {
+                    location: this.closest('section')?.id || 'unknown',
+                    text: this.textContent.trim()
+                });
             });
         });
     </script>
