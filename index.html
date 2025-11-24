@@ -368,25 +368,30 @@
             .nav-links {
                 display: none;
             }
-            
+
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
-            
+
             .hero p {
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
-            
+
             .waitlist-form {
                 flex-direction: column;
             }
-            
+
             .science-content {
                 grid-template-columns: 1fr;
             }
-            
+
             .pricing-card.featured {
                 transform: none;
+            }
+
+            /* Mobile styles for new sections */
+            section[style*="grid-template-columns: 1fr 1fr"] > div > div {
+                grid-template-columns: 1fr !important;
             }
         }
     </style>
@@ -410,14 +415,18 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Transform Your Wellness Through HRV Science</h1>
-            <p>Unlock your body's hidden signals with myVagal Tone<span class="trademark">™</span> technology</p>
-            <form class="waitlist-form" onsubmit="handleSubmit(event)">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit" class="btn-primary">Join Waitlist</button>
-            </form>
-            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
-                🚀 Be among the first 10,000 founding members • Launching Q1 2026
+            <h1>The Wellness Dashboard That Respects Your Privacy</h1>
+            <p>Connect to your MyBodyGuard Guardian for zero-trust security.<br>Or start free with basic tracking.</p>
+            <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 600px; margin: 2rem auto; position: relative; z-index: 1;">
+                <a href="https://mybodyguard.ai" style="background: #10B981; color: white; padding: 1rem 2rem; border-radius: 50px; font-size: 1.1rem; font-weight: bold; text-decoration: none; text-align: center; transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    Own a Guardian? Get Premium FREE →
+                </a>
+                <button type="button" class="btn-primary" onclick="window.location.href='#pricing'">
+                    Try VagalSync Free (no Guardian needed) →
+                </button>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">
+                🔒 VagalSync never stores your health data. When connected to your Guardian, all data stays on YOUR device.
             </p>
         </div>
     </section>
@@ -460,7 +469,48 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- Trust & Security Section -->
+    <section style="padding: 80px 0; background: white; border-top: 1px solid #E5E7EB;">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--dark);">Your Data, Your Control</h2>
+                <p style="font-size: 1.2rem; color: #6B7280; margin-bottom: 3rem; line-height: 1.8;">
+                    VagalSync never stores your health data. When connected to your Guardian, all data stays on YOUR device. We just display it beautifully.
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
+                        <h3 style="color: var(--dark); margin-bottom: 0.5rem;">Zero-Trust Architecture</h3>
+                        <p style="color: #6B7280;">No cloud storage, no data mining</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
+                        <h3 style="color: var(--dark); margin-bottom: 0.5rem;">Guardian Integration</h3>
+                        <p style="color: #6B7280;">Local-only processing on your device</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🔐</div>
+                        <h3 style="color: var(--dark); margin-bottom: 0.5rem;">Military-Grade Encryption</h3>
+                        <p style="color: #6B7280;">End-to-end encrypted at all times</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
+                        <h3 style="color: var(--dark); margin-bottom: 0.5rem;">HIPAA Compliant</h3>
+                        <p style="color: #6B7280;">Exceeds healthcare privacy standards</p>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 15px; margin-top: 3rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">🛡️ Powered by MyBodyGuard Guardian</h3>
+                    <p style="opacity: 0.95; margin-bottom: 1.5rem;">The Guardian is your personal health data fortress. It processes all your wellness data locally, so nothing ever leaves your control.</p>
+                    <a href="https://mybodyguard.ai" style="background: white; color: var(--primary); padding: 0.8rem 2rem; border-radius: 50px; font-weight: bold; text-decoration: none; display: inline-block; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Learn About Guardian →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Science Section -->
     <section class="science" id="science">
         <div class="container">
@@ -499,45 +549,114 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- VagalSync + Guardian Integration Visual -->
+    <section style="padding: 80px 0; background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: white;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">VagalSync + Guardian: The Perfect Pair</h2>
+            <p style="text-align: center; font-size: 1.2rem; opacity: 0.9; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                See your wellness data beautifully visualized in VagalSync, while the Guardian keeps everything secure on your device.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; max-width: 1100px; margin: 0 auto;">
+                <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.2);">
+                    <div style="background: white; border-radius: 15px; padding: 2rem; color: var(--dark);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                            <h3 style="margin: 0; font-size: 1.3rem;">VagalSync Dashboard</h3>
+                            <span style="background: #10B981; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">🔒 CONNECTED</span>
+                        </div>
+                        <div style="background: var(--gradient); padding: 2rem; border-radius: 10px; color: white; text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 3rem; font-weight: bold;">67</div>
+                            <div>myVagal Tone™</div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9rem;">
+                            <div style="background: #F3F4F6; padding: 1rem; border-radius: 8px;">
+                                <div style="color: #6B7280;">HRV</div>
+                                <div style="font-weight: bold; color: #10B981;">Excellent</div>
+                            </div>
+                            <div style="background: #F3F4F6; padding: 1rem; border-radius: 8px;">
+                                <div style="color: #6B7280;">Stress</div>
+                                <div style="font-weight: bold; color: #F59E0B;">Moderate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <div style="font-size: 5rem; margin-bottom: 1rem;">🔄</div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Seamless Sync</h3>
+                    <p style="opacity: 0.9; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Your Guardian processes all health data locally and securely syncs with VagalSync for beautiful visualization.
+                    </p>
+                    <div style="display: inline-block; background: rgba(255,255,255,0.2); padding: 1rem 1.5rem; border-radius: 10px; backdrop-filter: blur(10px);">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🛡️</div>
+                        <div style="font-weight: bold;">MyBodyGuard Guardian</div>
+                        <div style="font-size: 0.9rem; opacity: 0.9;">Your Personal Data Fortress</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://mybodyguard.ai" style="background: #10B981; color: white; padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.1rem; font-weight: bold; text-decoration: none; display: inline-block; transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 30px rgba(16, 185, 129, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    Get Your Guardian & Unlock VagalSync Premium FREE →
+                </a>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                    Guardian owners get VagalSync Premium for life at no additional cost
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing -->
     <section class="pricing" id="pricing">
         <div class="container">
             <h2>Simple, Transparent Pricing</h2>
             <p class="pricing-subtitle">Choose the plan that fits your wellness journey</p>
-            <div class="pricing-grid">
+            <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 900px;">
                 <div class="pricing-card">
                     <h3>Free</h3>
                     <div class="price">$0<span class="price-period">/month</span></div>
-                    <p>Basic HRV tracking</p>
-                    <p>Weekly reports</p>
-                    <p>1 device connection</p>
+                    <ul style="text-align: left; padding-left: 20px; margin-top: 1.5rem; line-height: 2;">
+                        <li>Basic HRV tracking</li>
+                        <li>Weekly wellness reports</li>
+                        <li>1 device connection</li>
+                        <li>myVagal Tone™ score</li>
+                    </ul>
+                    <button class="btn-primary" style="margin-top: 2rem; width: 100%; background: var(--gradient); color: white;" onclick="alert('Free tier coming soon! Join the waitlist.')">Get Started Free</button>
                 </div>
                 <div class="pricing-card featured">
-                    <h3>Silver</h3>
-                    <div class="price">$49<span class="price-period">/month</span></div>
-                    <p>Advanced analytics</p>
-                    <p>Daily insights</p>
-                    <p>3 device connections</p>
-                    <p>Personalized protocols</p>
+                    <h3>Premium</h3>
+                    <div class="price">$9.99<span class="price-period">/month</span></div>
+                    <ul style="text-align: left; padding-left: 20px; margin-top: 1.5rem; line-height: 2;">
+                        <li>Advanced HRV analytics</li>
+                        <li>Daily personalized insights</li>
+                        <li>Unlimited device connections</li>
+                        <li>AI-powered recommendations</li>
+                        <li>Progress tracking & trends</li>
+                        <li>Export & share data</li>
+                    </ul>
+                    <button class="btn-primary" style="margin-top: 2rem; width: 100%; background: var(--gradient); color: white;" onclick="alert('Premium tier coming soon! Join the waitlist.')">Upgrade to Premium</button>
                 </div>
-                <div class="pricing-card">
-                    <h3>Gold</h3>
-                    <div class="price">$99<span class="price-period">/month</span></div>
-                    <p>Complete platform access</p>
-                    <p>Real-time monitoring</p>
-                    <p>Unlimited devices</p>
-                    <p>Provider dashboard</p>
-                </div>
-                <div class="pricing-card">
-                    <h3>Platinum</h3>
-                    <div class="price">$299<span class="price-period">/month</span></div>
-                    <p>White-glove service</p>
-                    <p>Research participation</p>
-                    <p>Concierge support</p>
-                    <p>Custom protocols</p>
+                <div class="pricing-card" style="border: 3px solid #10B981;">
+                    <div style="background: #10B981; color: white; padding: 8px; margin: -2rem -2rem 1rem -2rem; border-radius: 12px 12px 0 0; font-weight: bold;">
+                        🛡️ GUARDIAN BUNDLE
+                    </div>
+                    <h3>Premium FREE</h3>
+                    <div class="price" style="font-size: 2rem;">FREE<span class="price-period" style="font-size: 0.9rem;"><br>with Guardian</span></div>
+                    <ul style="text-align: left; padding-left: 20px; margin-top: 1.5rem; line-height: 2;">
+                        <li><strong>All Premium features</strong></li>
+                        <li>Zero-trust data security</li>
+                        <li>Local-only data storage</li>
+                        <li>Military-grade encryption</li>
+                        <li>Complete privacy control</li>
+                        <li><em>Lifetime FREE with Guardian</em></li>
+                    </ul>
+                    <a href="https://mybodyguard.ai" class="btn-primary" style="display: block; margin-top: 2rem; width: 100%; background: #10B981; color: white; text-decoration: none; padding: 1rem 2rem; border-radius: 50px; font-weight: bold; text-align: center; box-sizing: border-box;">Get Your Guardian →</a>
                 </div>
             </div>
+            <p style="text-align: center; margin-top: 2rem; color: #6B7280; font-size: 0.95rem;">
+                💡 Own a MyBodyGuard Guardian? Premium is automatically FREE forever.
+            </p>
         </div>
     </section>
     
